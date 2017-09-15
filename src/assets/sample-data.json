@@ -1,0 +1,160 @@
+{ 
+    "departments": [
+        {
+            "id" : 1,
+            "name" : "Office Of Innovation & Technology",
+            "abbr" : "OIT",
+            "location" : 3,
+            "phone" : "215-686-5927",
+            "units" : [
+                {
+                    "id" : 1,
+                    "name" : "Office Of The Cio"
+                },
+                {
+                    "id" : 2,
+                    "name" : "External It Services"
+                },
+                {
+                    "id" : 3,
+                    "name" : "Enhanced Services"
+                }
+            ]
+        },
+        {
+            "id" : 2,
+            "name" : "Finance Depatment",
+            "abbr" : "?",
+            "location" : 1,
+            "phone" : "215-686-6164",
+            "units" : [
+                {
+                    "id" : 1,
+                    "name" : "Risk Management"
+                },
+                {
+                    "id" : 2,
+                    "name" : "Budget & Program Evaluation"
+                },
+                {
+                    "id" : 3,
+                    "name" : "Payroll"
+                }
+            ]
+        },
+        {
+            "id" : 3,
+            "name" : "Commerce",
+            "abbr" : "?",
+            "location" : 2,
+            "phone" : "215-683-2001",
+            "units" : [
+                {
+                    "id" : 1,
+                    "name" : "Executive Office"
+                },
+                {
+                    "id" : 2,
+                    "name" : "Office Neighborhood & Business"
+                }
+            ]
+        }
+    ],
+    "locations": [
+        {
+            "locationId" : 1,
+            "address" : "1515 Arch 12 Floor"
+        },
+        {
+            "locationId" : 2,
+            "address" : "Msb 13th Floor"
+        },
+        {
+            "locationId" : 3,
+            "address" : "1234 Market St."
+        }
+    ],
+    "people": [
+        {
+            "id": 1,
+            "first": "Charles",
+            "last": "Brennan",
+            "email": "brenna.charles@phila.gov",
+            "title": "Chief Info office",
+            "department": 1,
+            "unit": 1
+        },
+        {
+            "id": 2,
+            "first": "Harry",
+            "last": "Fishburn",
+            "email": "harry.fishburn@phila.gov",
+            "title": "Dig Literacy Innov Services",
+            "department" : 1,
+            "unit": 2
+        },
+        {
+            "id": 3,
+            "first": "Eric",
+            "last": "Boone",
+            "email": "eric.boone@phila.gov",
+            "title": "Enhanced Services Ma",
+            "department" : 1,
+            "unit": 3
+        },
+        {
+            "id": 4,
+            "first": "Barry",
+            "last": "Scott",
+            "email": "barry.scott@phila.gov",
+            "title": "Deputy Directory of Finance",
+            "department" : 2,
+            "unit": 1
+        },
+        {
+            "id": 5,
+            "first": "Anna",
+            "last": "Adams",
+            "email": "anna.adams@phila.gov",
+            "title": "Deputy Directory of Finance",
+            "department" : 2,
+            "unit": 2
+        },
+        {
+            "id": 6,
+            "first": "Valerie",
+            "last": "Hayes",
+            "email": "valerie.hayes@phila.gov",
+            "title": "Assitant to the Director",
+            "department" : 2,
+            "unit": 3
+        },
+        {
+            "id": 7,
+            "first": "Karen",
+            "last": "Fegely",
+            "email": "karen.fegely@phila.gov",
+            "title": "Deputy Director of Commerce",
+            "department" : 3,
+            "unit": 2
+        },
+        {
+            "id": 8,
+            "first": "Yvonne",
+            "last": "Boye",
+            "email": "yvonne.boye@phila.gov",
+            "title": "Senior Director",
+            "department" : 3,
+            "unit": 2
+        },
+        {
+            "id": 9,
+            "first": "Harold",
+            "last": "Epps",
+            "email": "harold.epps@phila.gov",
+            "title": "Director Of Commerce",
+            "department" : 3,
+            "unit": 1
+        }
+    ]
+}
