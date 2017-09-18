@@ -5,7 +5,7 @@
             <div class="table">
                 <div class="tr">
                     <div class="td">id</div>
-                    <div class="td">Name</div>
+                    <div class="td sort"><a v-on:click.prevent="colOrder('first','asc')">First</a></div>
                     <div class="td">Email</div>
                     <div class="td">
                         <select v-model="deptFilter">
@@ -68,6 +68,7 @@ export default {
         departments:[],
         people:[],
         errors: [],
+        orderBy:[{'col': 'last','order':'asc'}],
         unitFilter:'',
         deptFilter:'',
      }
@@ -83,10 +84,13 @@ export default {
       });
   },
   watch: {
+      orderBy:function(){
+          console.log(this.searchResults);
+        //    return console.log(_.orderBy(this.searchResults,this.orderBy.col,this.orderBy.order))
+      },
       unitFilter:function(){
           _.filter(this.searchResults,_.bind(function(person){
               if(person.unitName == this.unitFilter){
-                  console.log(this.unitFilter)
                   if(this.unitFilter == "all"){
                       person.visible = false;
                   }else{
@@ -124,6 +128,18 @@ export default {
       }
   },
   methods:{
+      colOrder:function(orderBy,order){
+          if(this.orderBy.col == orderBy){
+              if(this.orderBy.order == order){
+                  Vue.set(this.orderBy,'order','desc')
+              }else{
+                  Vue.set(this.orderBy,'order','asc')
+              }
+          }else{
+             Vue.set(this.orderBy,'col',orderBy)
+             Vue.set(this.orderBy,'order',order)
+          }
+      },
       updateFilters:function(action,person){
           if(action == 'add'){
               this.addToUnitFilter(person)

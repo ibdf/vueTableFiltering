@@ -8,36 +8,36 @@
             "phone" : "215-686-5927",
             "units" : [
                 {
-                    "id" : 1,
+                    "id" : "1-1",
                     "name" : "Office Of The Cio"
                 },
                 {
-                    "id" : 2,
+                    "id" : "1-2",
                     "name" : "External It Services"
                 },
                 {
-                    "id" : 3,
+                    "id" : "1-3",
                     "name" : "Enhanced Services"
                 }
             ]
         },
         {
             "id" : 2,
-            "name" : "Finance Depatment",
+            "name" : "Finance Department",
             "abbr" : "?",
             "location" : 1,
             "phone" : "215-686-6164",
             "units" : [
                 {
-                    "id" : 1,
+                    "id" : "2-1",
                     "name" : "Risk Management"
                 },
                 {
-                    "id" : 2,
+                    "id" : "2-2",
                     "name" : "Budget & Program Evaluation"
                 },
                 {
-                    "id" : 3,
+                    "id" : "2-3",
                     "name" : "Payroll"
                 }
             ]
@@ -50,11 +50,11 @@
             "phone" : "215-683-2001",
             "units" : [
                 {
-                    "id" : 1,
+                    "id" : "3-1",
                     "name" : "Executive Office"
                 },
                 {
-                    "id" : 2,
+                    "id" : "3-2",
                     "name" : "Office Neighborhood & Business"
                 }
             ]
@@ -82,7 +82,8 @@
             "email": "brenna.charles@phila.gov",
             "title": "Chief Info office",
             "department": 1,
-            "unit": 1
+            "visible" : false,
+            "unit": "1-1"
         },
         {
             "id": 2,
@@ -91,7 +92,8 @@
             "email": "harry.fishburn@phila.gov",
             "title": "Dig Literacy Innov Services",
             "department" : 1,
-            "unit": 2
+            "visible" : false,
+            "unit": "1-2"
         },
         {
             "id": 3,
@@ -100,7 +102,8 @@
             "email": "eric.boone@phila.gov",
             "title": "Enhanced Services Ma",
             "department" : 1,
-            "unit": 3
+            "visible" : false,
+            "unit": "1-3"
         },
         {
             "id": 4,
@@ -109,7 +112,8 @@
             "email": "barry.scott@phila.gov",
             "title": "Deputy Directory of Finance",
             "department" : 2,
-            "unit": 1
+            "visible" : false,
+            "unit": "2-1"
         },
         {
             "id": 5,
@@ -118,7 +122,8 @@
             "email": "anna.adams@phila.gov",
             "title": "Deputy Directory of Finance",
             "department" : 2,
-            "unit": 2
+            "visible" : false,
+            "unit": "2-2"
         },
         {
             "id": 6,
@@ -127,7 +132,8 @@
             "email": "valerie.hayes@phila.gov",
             "title": "Assitant to the Director",
             "department" : 2,
-            "unit": 3
+            "visible" : false,
+            "unit": "2-3"
         },
         {
             "id": 7,
@@ -136,7 +142,8 @@
             "email": "karen.fegely@phila.gov",
             "title": "Deputy Director of Commerce",
             "department" : 3,
-            "unit": 2
+            "visible" : false,
+            "unit": "3-1"
         },
         {
             "id": 8,
@@ -145,7 +152,8 @@
             "email": "yvonne.boye@phila.gov",
             "title": "Senior Director",
             "department" : 3,
-            "unit": 2
+            "visible" : false,
+            "unit": "3-2"
         },
         {
             "id": 9,
@@ -154,7 +162,8 @@
             "email": "harold.epps@phila.gov",
             "title": "Director Of Commerce",
             "department" : 3,
-            "unit": 1
+            "visible" : false,
+            "unit": "3-2"
         }
     ]
 }
