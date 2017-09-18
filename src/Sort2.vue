@@ -7,7 +7,7 @@
             <div class="table">
                 <div class="tr">
                     <div class="td">id</div>
-                    <div class="td sort">First Last</div>
+                    <div class="td sort"><a v-on:click.prevent="sortCol('first',colDir.first)">First</a> <a v-on:click.prevent="sortCol('last',colDir.last)">Last</a></div>
                     <div class="td">Email</div>
                     <div class="td">
                         <select ref="curDept" @change="executeFilter">
@@ -26,7 +26,7 @@
                 </div>
                 <!-- v-show="person.visible" -->
                 <div v-for="person in people" v-bind:key="person.id" class="tr">
-                    <div class="td">{{ person.visible }} {{ person.id }}</div>
+                    <div class="td">{{ person.id }}</div>
                     <div class="td">{{ person.first }} {{ person.last }}</div>
                     <div class="td">{{ person.email }}</div>
                     <div class="td">{{ person.departmentName }}</div>
@@ -59,20 +59,19 @@
     import moment from 'moment'
     import s from 'voca'
     import axios from 'axios'
-    var globalPeople = [];
     export default {
         data() {
             return {
                 // location: '',
                 // searchResults:[],
                 directory: [],
-                units: [],
-                departments: [],
                 people: [],
                 search: "",
                 department: "",
                 unit: "",
-                errors: []
+                errors: [],
+                colDir : {'first':'asc','last':'asc'},
+                lastColDir : {}
                 // orderBy:[{'col': 'last','order':'asc'}],
                 // unitFilter:'',
                 // deptFilter:'',
@@ -89,6 +88,26 @@
                     this.errors.push(e);
                 });
         },
+        computed: {
+			departments: function() {
+				let computed = []
+				for (let i = 0; i < this.people.length; ++i) {
+				   if( computed.indexOf(this.people[i].departmentName) == -1 ) {
+						computed.push(this.people[i].departmentName);   
+				   }
+				};
+				return computed;
+			},
+			units: function() {
+				let computed = []
+				for (let i = 0; i < this.people.length; ++i) {
+				   if( computed.indexOf(this.people[i].unitName) == -1 ) {
+						computed.push(this.people[i].unitName);   
+				   }
+				};
+				return computed;
+			},
+		},
         watch: {
             // 'directory.people': {
             //     handler(people) {
@@ -152,7 +171,7 @@
                 this.department = this.$refs.curDept.value;
                 this.unit = this.$refs.curUnit.value;
                 var _self = this;
-                var filtered = globalPeople.filter(function(o){
+                var filtered = this.directory.people.filter(function(o){
                     if( _self.search != "" ) {
                         if( o.fullName.toLowerCase().indexOf(_self.search.toLowerCase()) == -1 ) {
                             return false;
@@ -174,28 +193,15 @@
                     return true;
                 });
                 this.people = filtered;
-                this.populateDepartments();
-                this.pouplateUnits();
             },
-            populateDepartments: function() {
-                this.departments = [];
-                let index;
-                for (index = 0; index < this.people.length; ++index) {
-                   if( this.departments.indexOf(this.people[index].departmentName) == -1 ) {
-                        this.departments.push(this.people[index].departmentName);   
-                   }
-                };
+            sortCol:function(col,dir){
+               
+                this.colDir[col] = (dir == 'asc' ? 'desc' : 'asc')
+                this.directory.people = _.orderBy(this.directory.people,[col],[dir])
+                this.people = this.directory.people;
+                this.lastColDir = {'col':col,'dir':dir}
             },
-            pouplateUnits: function() {
-                this.units = [];
-                let index;
-                for (index = 0; index < this.people.length; ++index) {
-                   if( this.units.indexOf(this.people[index].unitName) == -1 ) {
-                        this.units.push(this.people[index].unitName);   
-                   }
-                };
-            },
-            updateFilter: function (action, filter, value) {
+            // updateFilter: function (action, filter, value) {
                 // if (action == "add") {
                 //     if (this[filter].indexOf(value) == -1) {
                 //         console.log("added = " + value)
@@ -208,7 +214,7 @@
                 //     }
                 // }
                 // console.log("--------------------")
-            },
+            // },
             //   addToUnitFilter:function(person){
             //       if(!this.units.includes(person.unitName)){
             //           this.units.push(person.unitName)
@@ -273,7 +279,7 @@
                         }
                     })
                 })
-                globalPeople = this.directory.people;
+                // globalPeople = this.directory.people;
             },
             getDeptLocations: function () {
                 var self = this;
@@ -312,6 +318,7 @@
 
     a {
         text-decoration: none;
+        cursor:pointer;
     }
 
     .table {
