@@ -12,14 +12,14 @@
 					<div class="td">
 						<select v-model="department">
 							<!-- <option disabled>Departments</option> -->
-							<option value="all" selected>All Departments</option>
+							<option value="all">All Departments</option>
 							<option v-for="(d,index) in departments" v-bind:key="index" v-bind:value="d" :selected="department==d">{{ d }}</option>
 						</select>
 					</div>
 					<div class="td">
 						<select v-model="unit">
 							<!-- <option disabled selected>Units</option> -->
-							<option value="all" selected>All Units</option>
+							<option value="all">All Units</option>
 							<option v-for="(u,index) in units" v-bind:key="index" v-bind:value="u" :selected="unit==u">{{ u }}</option>
 						</select>
 					</div>
